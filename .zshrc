@@ -96,17 +96,10 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias zrc='vim ~/.zshrc'
 alias vrc='vim ~/.vimrc'
-alias irc='vim ~/.config/i3/congig'
+alias irc='vim ~/.config/i3/config'
 alias sz='source ~/.zshrc'
 alias sv='source ~/.vimrc'
 alias fs='echo $0'
@@ -119,6 +112,7 @@ alias d='rm -rf'
 alias bri='xrandr --output eDP --brightness'
 alias ini='sudo pacman -Sy'
 alias upd='sudo pacman -Syu'
+alias gc='git clone'
 
 set -o vi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
