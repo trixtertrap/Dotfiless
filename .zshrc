@@ -110,8 +110,8 @@ alias a='cd ..'
 alias e='exit'
 alias d='rm -rf'
 alias bri='xrandr --output eDP --brightness'
-alias ini='sudo pacman -Sy'
-alias upd='sudo pacman -Syu'
+alias ini='sudo pacman -Sy || sudo apt install -y'
+alias upd='sudo pacman -Syu || (sudo apt update && sudo apt upgrade -y)'
 alias gc='git clone'
 
 set -o vi
