@@ -186,10 +186,13 @@ bindsym $mod+r mode "resize"
 bindsym $mod+d exec "rofi -modi window,drun,run -show drun -sidebar-mode -terminal alacritty -color-window '#000000, #000000, #000000' -color-normal '#000000, #b3e774, #000000, #b3e774, #000000' -color-active '#000000, #b3e774, #000000, #b3e774, #000000' -color-urgent '#000000, #b3e774, #000000, #b3e774, #000000'"
 
 
-exec_always --no-startup-id  polybar example 
+exec_always --no-startup-id  $HOME/.config/polybar/launch.sh 
+#exec_always --no-startup-id  polybar example 
 bindsym $mod+t exec i3lock-fancy
 bindsym $mod+b exec firefox 
 
+exec_always --no-startup-id  sleep 10 i3lock-fancy
+exec_always --no-startup-id backlight_control 40  
 bindsym $mod+i exec backlight_control +10 
 bindsym $mod+u exec backlight_control -10
 for_window [class="^.*"] border pixel 2
