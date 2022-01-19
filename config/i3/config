@@ -13,11 +13,11 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-#font pango:monospace 18
+font pango:monospace 20 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 18px
+font pango:DejaVu Sans Mono 20px
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -29,10 +29,12 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-exec --no-startup-id picom -I 1 -O 1 -m 0.1 -b
+exec --no-startup-id picom -I 1 -O 1 -o 0.5 -b
 
-exec --no-startup-id feh --bg-scale /home/mark/Wallpapers/wallhaven-e7wr5k.jpg
-
+#exec --no-startup-id feh --bg-scale /home/mark/Wallpapers/wallhaven-57myr5.jpg
+#exec --no-startup-id feh --bg-scale /home/mark/Wallpapers/wallhaven-e7wr5k.jpg
+exec --no-startup-id feh --bg-scale /home/mark/Wallpapers/jinx.jpg
+exec --no-startup-id sudo mount /dev/sda1 /home/mark/pix/mount 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -108,7 +110,7 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
-set $ws2 "2 <web>" 
+set $ws2 "2 : Firefox " 
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
@@ -186,8 +188,8 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
-#bindsym $mod+d exec dmenu
-bindsym $mod+d exec "rofi -modi window,drun,run -show drun -sidebar-mode -terminal alacritty -color-window '#000000, #000000, #000000' -color-normal '#000000, #b3e774, #000000, #b3e774, #000000' -color-active '#000000, #b3e774, #000000, #b3e774, #000000' -color-urgent '#000000, #b3e774, #000000, #b3e774, #000000'"
+bindsym $mod+d exec dmenu_run
+#bindsym $mod+d exec "rofi -modi window,drun,run -show drun -sidebar-mode -terminal alacritty -color-window '#000000, #000000, #000000' -color-normal '#000000, #b3e774, #000000, #b3e774, #000000' -color-active '#000000, #b3e774, #000000, #b3e774, #000000' -color-urgent '#000000, #b3e774, #000000, #b3e774, #000000'"
 
 
 exec_always --no-startup-id  $HOME/.config/polybar/launch.sh 
@@ -196,10 +198,13 @@ bindsym $mod+t exec i3lock-fancy -p
 bindsym $mod+b exec firefox 
 bindsym $mod+n exec redshift -P -O 5000 
 bindsym $mod+z exec redshift -x  
+bindsym $mod+c exec flameshot gui
 bindsym $mod+Shift+w exec brave
+bindsym $mod+Shift+x exec shutdown -r now
 bindsym $mod+Shift+t exec vivaldi-stable
 bindsym $mod+o exec alacritty -e nmtui 
 bindsym $mod+p exec alacritty -e htop 
+bindsym $mod+m exec alacritty --working-directory=/home/mark/pix/mount/New\ folder/ 
 
 exec_always --no-startup-id  sleep 10 i3lock-fancy
 exec_always --no-startup-id backlight_control 40  
