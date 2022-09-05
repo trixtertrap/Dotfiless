@@ -5,11 +5,16 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+#nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/mark/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -104,16 +109,26 @@ alias sz='source ~/.zshrc'
 alias sv='source ~/.vimrc'
 alias fs='echo $0'
 alias sn='shutdown now'
+alias bo='bluetoothctl power on'
+alias bf='bluetoothctl power off'
+alias ni='redshift -P -O 10000 '
+alias nr='redshift -P -O 5000 '
+alias bc='bluetoothctl connect '
 alias rn='shutdown -r now'
 alias c='clear'
 alias a='cd ..'
 alias e='exit'
 alias d='rm -rf'
+alias p='mpv *'
+alias r='sudo pacman -Rscn '
 alias bri='xrandr --output eDP --brightness'
-alias ini='sudo pacman -Sy || sudo apt install -y'
+alias ini='sudo pacman -Sy ' 
 alias upd='sudo pacman -Syu || (sudo apt update && sudo apt upgrade -y)'
 alias gc='git clone'
-
+alias nc='ping www.google.com'
+alias 2g='nmcli dev wifi connect Dithan'
+alias 2g='nmcli dev wifi connect Dithan_5G'
+alias cw='xclip -selection clipboard'
 set -o vi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -123,3 +138,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #####battery
+alias at=alacritty-themes
